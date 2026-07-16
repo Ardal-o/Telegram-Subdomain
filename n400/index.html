@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>N-400 Case Progress Tracker</title>
+<meta name="description" content="Anonymous community timeline data for U.S. naturalization (N-400) applications.">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+:root{
+  --bg:#f6f8fa; --card:#fff; --ink:#16202a; --muted:#6b7a8c; --line:#e3e9ef;
+  --adv:#2b8a3e; --reg:#c44a42; --accent:#2f6fb0;
+  --b0:#95a5b4; --b1:#7fa4c4; --b2:#5f98cd; --b3:#528dc7; --b4:#489ca8;
+  --b5:#49a782; --b6:#4caf63; --b7:#38a14a;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#0f1620; --card:#161f2b; --ink:#e8eef5; --muted:#8b9bad; --line:#243040; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  -webkit-text-size-adjust:100%}
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px 60px}
+header h1{font-size:26px;margin:0 0 4px}
+header p{margin:0;color:var(--muted);font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:18px;margin:18px 0}
+h2{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 14px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;white-space:nowrap}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tfoot td{font-weight:700;border-bottom:none;border-top:2px solid var(--line)}
+.bar{height:10px;border-radius:6px;background:var(--line);overflow:hidden;min-width:60px}
+.bar span{display:block;height:100%;border-radius:6px}
+.adv{color:var(--adv);font-weight:600}
+.reg{color:var(--reg);font-weight:600}
+.zero{color:var(--muted);font-weight:400}
+.na{color:var(--muted)}
+.grp{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+input,select{font:inherit;padding:8px 10px;border:1px solid var(--line);
+  border-radius:9px;background:var(--bg);color:var(--ink)}
+input{flex:1;min-width:140px}
+th.s{cursor:pointer;user-select:none}
+th.s:hover{color:var(--ink)}
+th.s::after{content:"\2195";opacity:.35;margin-left:4px}
+th.s.asc::after{content:"\2191";opacity:1}
+th.s.desc::after{content:"\2193";opacity:1}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+footer{color:var(--muted);font-size:13px;text-align:center;margin-top:26px}
+a{color:var(--accent)}
+.cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+  padding:10px 16px;border-radius:10px;font-weight:600;margin-top:6px}
+.count{color:var(--muted);font-size:13px;margin-top:10px}
+</style>
+</head><body><div class="wrap">
+<header>
+  <h1>N-400 Case Progress Tracker</h1>
+  <p>Anonymous community snapshot · 22 applications · updated Jul 15, 2026 · 10:08 PM PDT</p>
+</header>
+<section class="card">
+<h2>Applications per stage</h2>
+<div class="scroll"><table>
+<thead>
+<tr><th></th><th></th><th></th><th colspan="2" class="n grp">Advanced into</th>
+<th colspan="2" class="n grp">Regressed out</th></tr>
+<tr><th>Stage</th><th></th><th class="n">Now</th>
+<th class="n">7d</th><th class="n">30d</th><th class="n">7d</th><th class="n">30d</th></tr>
+</thead>
+<tbody><tr><td>Oath Cmpltd</td><td style="width:38%"><div class="bar"><span style="width:40%;background:var(--b7)"></span></div></td><td class="n">2</td><td class="n zero">0</td><td class="n adv">1</td><td class="n na">—</td><td class="n na">—</td></tr><tr><td>Oath Schld</td><td style="width:38%"><div class="bar"><span style="width:40%;background:var(--b6)"></span></div></td><td class="n">2</td><td class="n adv">1</td><td class="n adv">1</td><td class="n reg">1</td><td class="n reg">1</td></tr><tr><td>Approved</td><td style="width:38%"><div class="bar"><span style="width:80%;background:var(--b5)"></span></div></td><td class="n">4</td><td class="n adv">2</td><td class="n adv">3</td><td class="n zero">0</td><td class="n zero">0</td></tr><tr><td>Intvw Done</td><td style="width:38%"><div class="bar"><span style="width:40%;background:var(--b4)"></span></div></td><td class="n">2</td><td class="n adv">1</td><td class="n adv">1</td><td class="n reg">1</td><td class="n reg">1</td></tr><tr><td>Intvw Schld</td><td style="width:38%"><div class="bar"><span style="width:60%;background:var(--b3)"></span></div></td><td class="n">3</td><td class="n zero">0</td><td class="n zero">0</td><td class="n zero">0</td><td class="n zero">0</td></tr><tr><td>Bio Done</td><td style="width:38%"><div class="bar"><span style="width:100%;background:var(--b2)"></span></div></td><td class="n">5</td><td class="n zero">0</td><td class="n zero">0</td><td class="n zero">0</td><td class="n zero">0</td></tr><tr><td>Bio Schld</td><td style="width:38%"><div class="bar"><span style="width:20%;background:var(--b1)"></span></div></td><td class="n">1</td><td class="n zero">0</td><td class="n zero">0</td><td class="n zero">0</td><td class="n zero">0</td></tr><tr><td>Filed</td><td style="width:38%"><div class="bar"><span style="width:60%;background:var(--b0)"></span></div></td><td class="n">3</td><td class="n na">—</td><td class="n na">—</td><td class="n na">—</td><td class="n na">—</td></tr></tbody>
+<tfoot><tr><td>Grand Total</td><td></td><td class="n">22</td><td class="n adv">4</td><td class="n adv">6</td><td class="n reg">2</td><td class="n reg">2</td></tr></tfoot>
+</table></div>
+</section>
+<section class="card" id="cases">
+<h2>All cases</h2>
+<div class="tools">
+  <input id="q" placeholder="Search office, stage, date…" autocomplete="off">
+  <select id="stage"><option value="">All stages</option><option value="Oath Cmpltd">Oath Cmpltd</option><option value="Oath Schld">Oath Schld</option><option value="Approved">Approved</option><option value="Intvw Done">Intvw Done</option><option value="Intvw Schld">Intvw Schld</option><option value="Bio Done">Bio Done</option><option value="Bio Schld">Bio Schld</option><option value="Filed">Filed</option></select>
+</div>
+<div class="scroll"><table>
+<thead><tr>
+<th class="s n" data-k="id">App#</th>
+<th class="s" data-k="filed">Filed</th>
+<th class="s" data-k="idx">Stage</th>
+<th class="s" data-k="sdate">Stage date</th>
+<th class="s" data-k="office">Office</th>
+</tr></thead>
+<tbody id="rows"><tr data-stage="Oath Cmpltd" data-id="912" data-filed="2025-01-15" data-idx="7" data-sdate="2025-07-15" data-office="Sample office"><td class="n">912</td><td>01/15/25</td><td>Oath Cmpltd</td><td>07/15/25</td><td>Sample office</td></tr><tr data-stage="Oath Cmpltd" data-id="917" data-filed="2025-01-15" data-idx="7" data-sdate="2025-07-15" data-office="Sample office"><td class="n">917</td><td>01/15/25</td><td>Oath Cmpltd</td><td>07/15/25</td><td>Sample office</td></tr><tr data-stage="Oath Schld" data-id="909" data-filed="2025-01-15" data-idx="6" data-sdate="2025-07-15" data-office="Sample office"><td class="n">909</td><td>01/15/25</td><td>Oath Schld</td><td>07/15/25</td><td>Sample office</td></tr><tr data-stage="Oath Schld" data-id="915" data-filed="2025-01-15" data-idx="6" data-sdate="2025-07-15" data-office="Sample office"><td class="n">915</td><td>01/15/25</td><td>Oath Schld</td><td>07/15/25</td><td>Sample office</td></tr><tr data-stage="Approved" data-id="905" data-filed="2025-01-15" data-idx="5" data-sdate="2025-06-10" data-office="Sample office"><td class="n">905</td><td>01/15/25</td><td>Approved</td><td>06/10/25</td><td>Sample office</td></tr><tr data-stage="Approved" data-id="908" data-filed="2025-01-15" data-idx="5" data-sdate="2025-06-10" data-office="Sample office"><td class="n">908</td><td>01/15/25</td><td>Approved</td><td>06/10/25</td><td>Sample office</td></tr><tr data-stage="Approved" data-id="914" data-filed="2025-01-15" data-idx="5" data-sdate="2025-06-10" data-office="Sample office"><td class="n">914</td><td>01/15/25</td><td>Approved</td><td>06/10/25</td><td>Sample office</td></tr><tr data-stage="Approved" data-id="919" data-filed="2025-01-15" data-idx="5" data-sdate="2025-06-10" data-office="Sample office"><td class="n">919</td><td>01/15/25</td><td>Approved</td><td>06/10/25</td><td>Sample office</td></tr><tr data-stage="Intvw Done" data-id="903" data-filed="2025-01-15" data-idx="4" data-sdate="2025-05-20" data-office="Sample office"><td class="n">903</td><td>01/15/25</td><td>Intvw Done</td><td>05/20/25</td><td>Sample office</td></tr><tr data-stage="Intvw Done" data-id="910" data-filed="2025-01-15" data-idx="4" data-sdate="2025-05-20" data-office="Sample office"><td class="n">910</td><td>01/15/25</td><td>Intvw Done</td><td>05/20/25</td><td>Sample office</td></tr><tr data-stage="Intvw Schld" data-id="907" data-filed="2025-01-15" data-idx="3" data-sdate="2025-06-01" data-office="Sample office"><td class="n">907</td><td>01/15/25</td><td>Intvw Schld</td><td>06/01/25</td><td>Sample office</td></tr><tr data-stage="Intvw Schld" data-id="913" data-filed="2025-01-15" data-idx="3" data-sdate="2025-06-01" data-office="Sample office"><td class="n">913</td><td>01/15/25</td><td>Intvw Schld</td><td>06/01/25</td><td>Sample office</td></tr><tr data-stage="Intvw Schld" data-id="920" data-filed="2025-01-15" data-idx="3" data-sdate="2025-06-01" data-office="Sample office"><td class="n">920</td><td>01/15/25</td><td>Intvw Schld</td><td>06/01/25</td><td>Sample office</td></tr><tr data-stage="Bio Done" data-id="1005" data-filed="2023-01-02" data-idx="2" data-sdate="" data-office="Fort Smith, AR"><td class="n">1005</td><td>01/02/23</td><td>Bio Done</td><td>-</td><td>Fort Smith, AR</td></tr><tr data-stage="Bio Done" data-id="901" data-filed="2025-01-15" data-idx="2" data-sdate="" data-office="Sample office"><td class="n">901</td><td>01/15/25</td><td>Bio Done</td><td>-</td><td>Sample office</td></tr><tr data-stage="Bio Done" data-id="906" data-filed="2025-01-15" data-idx="2" data-sdate="" data-office="Sample office"><td class="n">906</td><td>01/15/25</td><td>Bio Done</td><td>-</td><td>Sample office</td></tr><tr data-stage="Bio Done" data-id="911" data-filed="2025-01-15" data-idx="2" data-sdate="" data-office="Sample office"><td class="n">911</td><td>01/15/25</td><td>Bio Done</td><td>-</td><td>Sample office</td></tr><tr data-stage="Bio Done" data-id="918" data-filed="2025-01-15" data-idx="2" data-sdate="" data-office="Sample office"><td class="n">918</td><td>01/15/25</td><td>Bio Done</td><td>-</td><td>Sample office</td></tr><tr data-stage="Bio Schld" data-id="904" data-filed="2025-01-15" data-idx="1" data-sdate="2025-03-01" data-office="Sample office"><td class="n">904</td><td>01/15/25</td><td>Bio Schld</td><td>03/01/25</td><td>Sample office</td></tr><tr data-stage="Filed" data-id="1004" data-filed="2022-01-01" data-idx="0" data-sdate="" data-office="Greer, SC"><td class="n">1004</td><td>01/01/22</td><td>Filed</td><td>-</td><td>Greer, SC</td></tr><tr data-stage="Filed" data-id="902" data-filed="2025-01-15" data-idx="0" data-sdate="" data-office="Sample office"><td class="n">902</td><td>01/15/25</td><td>Filed</td><td>-</td><td>Sample office</td></tr><tr data-stage="Filed" data-id="916" data-filed="2025-01-15" data-idx="0" data-sdate="" data-office="Sample office"><td class="n">916</td><td>01/15/25</td><td>Filed</td><td>-</td><td>Sample office</td></tr></tbody>
+</table></div>
+<p class="count" id="cnt"></p>
+</section>
+<footer>
+  <p class="tg-hide">Add your own case: <a href="https://t.me/ImmiProgress_bot">https://t.me/ImmiProgress_bot</a></p>
+  <div class="tg-hide"><p><a class="cta" href="https://t.me/+RdZh0vl6r3o0ZWE0">Join the group</a></p></div>
+  <p>Community-reported data. Not affiliated with USCIS. No personal information is published.</p>
+</footer>
+</div>
+<script>
+// Telegram Mini App integration (harmless when opened in a normal browser).
+const tg = window.Telegram && window.Telegram.WebApp;
+if (tg) {
+  tg.ready(); tg.expand();
+  const t = tg.themeParams || {};
+  const r = document.documentElement.style;
+  if (t.bg_color)          r.setProperty('--bg', t.bg_color);
+  if (t.secondary_bg_color)r.setProperty('--card', t.secondary_bg_color);
+  if (t.text_color)        r.setProperty('--ink', t.text_color);
+  if (t.hint_color)        r.setProperty('--muted', t.hint_color);
+  if (t.link_color)        r.setProperty('--accent', t.link_color);
+  document.querySelectorAll('.tg-hide').forEach(e => e.style.display = 'none');
+}
+</script>
+<script>
+const q=document.getElementById('q'), sel=document.getElementById('stage'),
+      tb=document.getElementById('rows'), cnt=document.getElementById('cnt');
+const all=[...tb.rows];
+function apply(){
+  const t=q.value.toLowerCase(), s=sel.value; let n=0;
+  for(const r of all){
+    const ok=(!t||r.innerText.toLowerCase().includes(t))&&(!s||r.dataset.stage===s);
+    r.style.display=ok?'':'none'; if(ok)n++;
+  }
+  cnt.textContent=n+' of '+all.length+' cases';
+}
+q.addEventListener('input',apply); sel.addEventListener('change',apply);
+document.querySelectorAll('th.s').forEach((th,i)=>{
+  th.addEventListener('click',()=>{
+    const desc=!th.classList.contains('desc');
+    document.querySelectorAll('th.s').forEach(o=>o.classList.remove('asc','desc'));
+    th.classList.add(desc?'desc':'asc');
+    const k=th.dataset.k;
+    const rows=[...tb.rows].sort((a,b)=>{
+      let x=a.dataset[k], y=b.dataset[k];
+      if(!isNaN(x)&&!isNaN(y)){x=+x;y=+y;}
+      return (x<y?-1:x>y?1:0)*(desc?-1:1);
+    });
+    rows.forEach(r=>tb.appendChild(r));
+  });
+});
+apply();
+</script>
+</body></html>
